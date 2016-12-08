@@ -8,7 +8,7 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-/*class*/
+/*classeeeeee*/
 public class BibFrameControler implements Executeur {
 
 	public static BibFrameControler theAppli;
