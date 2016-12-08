@@ -2,10 +2,9 @@
  * Debut.java
  * @author Qian Junwen
  * 01/12/2016
- * version 1.0
- * 1.créer le frame du bibliothèque
- * 2.traiter les affaires des boutons  
- *  
+ * version 1.0 
+ * 1.Interface obligatoire des executeurs pour le compte des boutons
+ * 2.écoute aux boutons, table et textField
  */
 
 //	Java-Langage
