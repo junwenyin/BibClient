@@ -1,9 +1,10 @@
 /*
- * Debut.java
+ * MyTableModel.java
  * @author Qian Junwen
  * 01/12/2016
  * version 1.0 
- *
+ * 
+ * données analytiques
  * 
  */
 
