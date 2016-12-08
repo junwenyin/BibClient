@@ -1,18 +1,19 @@
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
-//
-//		-------------------------------------
-//		 Exercice de plus en plus complique:
-//		-------------------------------------
-//
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
+/*
+ * Debut.java
+ * @author Qian Junwen
+ * 01/12/2016
+ * version 1.0
+ * 1.créer le frame du bibliothèque
+ * 2.traiter les affaires des boutons  
+ *  
+ */
 
 //	Java-Langage
 //	
 import java.io.*;
 import java.util.*;
 
+//	Java-une bibliothèque graphique
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -21,12 +22,14 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+//	Java-Graphisme
+//
 import java.awt.*;
 import java.awt.event.*;
 
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
-
+/**
+ *	Interface obligatoire des executeurs pour le compte des boutons.
+ */
 interface Executeur {
 	// debut d'interface
 	// ----------------------------------------------------------------------
@@ -40,6 +43,10 @@ interface Executeur {
 // ----------------------------------------------------------------------
 // ----------------------------------------------------------------------
 
+
+/**
+ *	Bouton ordinaire qui est son propre 'ActionListener'.
+ */
 class MyButton extends Button implements ActionListener {
 	// debut de classe
 	// ----------------------------------------------------------------------
@@ -62,6 +69,9 @@ class MyButton extends Button implements ActionListener {
 	// fin de classe
 }
 
+/**
+ *	JTable ordinaire qui est son propre 'ListSelectionListener'.
+ */
 class MyTable extends JTable implements ListSelectionListener {
 	// debut de classe
 	// ----------------------------------------------------------------------
@@ -76,14 +86,7 @@ class MyTable extends JTable implements ListSelectionListener {
 		xeq = x;
 		
 		this.getSelectionModel().addListSelectionListener(this);
-		/*
-		addMouseListener(new MouseAdapter(){	    
-		    public void mouseClicked(MouseEvent e) {
-		       if(e.getClickCount()==2){
-		    	   xeq.executer(mission);  
-		       }
-		    }
-		   });*/
+
 	}
 
 	
@@ -97,6 +100,10 @@ class MyTable extends JTable implements ListSelectionListener {
 
 // ----------------------------------------------------------------------
 // ----------------------------------------------------------------------
+
+/**
+ *	JTextField ordinaire qui est son propre 'DocumentListener'.
+ */
 
 class MyTextField extends JTextField implements DocumentListener {
 	// debut de classe
@@ -114,19 +121,16 @@ class MyTextField extends JTextField implements DocumentListener {
 
 	@Override
 	public void changedUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
 		xeq.executer(mission);
 	}
 
 	@Override
 	public void insertUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
 		xeq.executer(mission);
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
 		xeq.executer(mission);
 	}
 
