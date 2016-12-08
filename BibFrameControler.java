@@ -1,3 +1,16 @@
+/*
+ * BibFrameControler.java
+ * @author Qian Junwen
+ * 01/12/2016
+ * version 1.0 
+ * 
+ * 1. construction des frames-login, table, detail.
+ * 2. Actions des differents boutons de l'application.
+ */
+
+
+//	Java-Graphisme
+//	
 import java.awt.*;
 import java.awt.event.*;
 
@@ -5,12 +18,16 @@ import java.util.ArrayList;
 
 import java.util.Vector;
 
+//	Java-une bibliothèque graphique
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-/*class*/
 public class BibFrameControler implements Executeur {
 
+// debut de classe			
+//----------------------------------------------------------------------
+	
+	
 	public static BibFrameControler theAppli;
 	MyTable table;
 	MyTableModel myTableModel;
@@ -36,10 +53,15 @@ public class BibFrameControler implements Executeur {
 	Frame dFrame;
 	TextArea ta12;
 
+/**
+ *	Raccourci d'ecriture sur la sortie standard.
+ */	
 	public static void a(String s) {
 		System.out.println(s);
 	}
-
+/**	
+*	 construction de frame du contenu de livre 
+*/
 	void intDFrame() {
 		Panel pDetail;
 		Panel pTxt;
@@ -70,6 +92,9 @@ public class BibFrameControler implements Executeur {
 		dFrame.setVisible(true);
 	}
 
+/**	
+*	 construction de frame-login
+*/
 	void initLoginFrame() {
 		loginFrame = new JFrame("Login");
 		loginFrame.setTitle("Please Login");
@@ -95,7 +120,9 @@ public class BibFrameControler implements Executeur {
 		loginFrame.setVisible(true);
 		loginFrame.validate();
 	}
-
+/**	
+*	 construction de frame-table
+*/
 	void initMyFrame() {
 		myFrame = new JFrame();
 		myPanel = new JPanel();
@@ -149,20 +176,23 @@ public class BibFrameControler implements Executeur {
 		myFrame.validate();
 
 	}
-
+/**
+ *	Actions des differents boutons de l'application.
+ *	(avec erreurs, parfois)
+ */
 	@Override
 	public void executer(int mission) {
 		// TODO Auto-generated method stub
 		switch (mission) {
-		case 1: // apres log-in, on passe de f1 a f2
+		case 1: // apres log-in, on passe de frame-login à frame-table
 		{
 			String user = text_user.getText();
 			String pass = text_pass.getText();
 
-			if (user.equals("") || pass.equals("")) {
+			if (user.equals("") || pass.equals("")) {//	si vous n'avez pas entré les informations complètes
 				JOptionPane.showMessageDialog(null, "saisir l'information, SVP!");
 				return;
-			} else {
+			} else {//	on passe de frame-login à frame-table avec sucèes
 				loginFrame.setVisible(false);
 				myFrame.setVisible(true);
 			}
@@ -173,7 +203,7 @@ public class BibFrameControler implements Executeur {
 		{
 		}
 			break;
-		case 3: // chercher
+		case 3: // appuyez le bouton-chercher
 		{
 			a("chercher");
 			doChercher();
@@ -182,7 +212,7 @@ public class BibFrameControler implements Executeur {
 			textFieldAuteur.setEditable(true);
 		}
 			break;
-		case 4: // textFieldID
+		case 4: // entre dans le textfield de id
 		{
 			a("textFieldID");
 			textFieldName.setEditable(false);
@@ -190,7 +220,7 @@ public class BibFrameControler implements Executeur {
 			textFieldID.setEditable(true);
 		}
 			break;
-		case 5: // textFieldName
+		case 5: //  entre dans le textfield de nom de livre
 		{
 			a("textFieldName");
 			textFieldName.setEditable(true);
@@ -198,7 +228,7 @@ public class BibFrameControler implements Executeur {
 			textFieldAuteur.setEditable(false);
 		}
 			break;
-		case 6: // textFieldAuteur
+		case 6: //  entre dans le textfield de auteur de livre
 		{
 			a("textFieldAuteur");
 			textFieldAuteur.setEditable(true);
@@ -206,7 +236,7 @@ public class BibFrameControler implements Executeur {
 			textFieldName.setEditable(false);
 		}
 			break;
-		case 7: // table
+		case 7: // vous avez cliqué un ligne
 		{
 			a("table");
 			
@@ -217,9 +247,9 @@ public class BibFrameControler implements Executeur {
 			a(str_id);
 		}
 			break;
-		case 8: // affivhier
+		case 8: // vous avez appuyez le bouton-affchier
 		{
-			a("affivhier");
+			a("affichier");
 			doAfichier();
 		}
 			break;
@@ -227,7 +257,12 @@ public class BibFrameControler implements Executeur {
 			break;
 		}
 	}
-
+	
+/**
+ *	Affichier le contenu de livre dans le frame de detail
+ *	
+ */
+	
 	private void doAfichier() {
 		int port = 5000;
 		switch (str_Server) {
@@ -253,7 +288,10 @@ public class BibFrameControler implements Executeur {
 		}
 		dFrame.validate();
 	}
-
+/**
+ *	chercher un livre par id, auteur ou name
+ *	
+ */
 	void doChercher() {
 		try {
 
@@ -287,4 +325,9 @@ public class BibFrameControler implements Executeur {
 		theAppli.myGo();
 	}
 
-}
+//----------------------------------------------------------------------
+// fin de classe	
+	}
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
