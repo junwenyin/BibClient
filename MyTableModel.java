@@ -4,31 +4,28 @@
  * 01/12/2016
  * version 1.0 
  * 
- * données analytiques
+ * donn�es analytiques
  * 
  */
-
 
 import java.util.ArrayList;
 import java.util.Vector;
 
-//	Java-une bibliothèque graphique
 import javax.swing.table.AbstractTableModel;
-
 
 public class MyTableModel extends AbstractTableModel  
 {  
-// debut de classe
-// ----------------------------------------------------------------------
-    /* 
-     *  Définition de la tête de ligne et objet colonne
-     */  
+	// debut de classe
+	// ----------------------------------------------------------------------
+	    /* 
+	     *  D�finition de la t�te de ligne et objet colonne
+	     */ 
     String[] columnNames =  
     { "ID", "Name", "Auteur", "Special", "Server","Choix" };  
     Object[][] data = new Object[1][6];  
 
     /** 
-     * valeur du table par défaut
+     * 
      */  
     public MyTableModel()  
     {   
@@ -38,11 +35,12 @@ public class MyTableModel extends AbstractTableModel
 		data[0][3]="Special";
 		data[0][4]="Server";
 		data[0][5]=new Boolean(false); 
-    }  
-
+    } 
+    
     /** 
-     * données analytiques
+     * renouveler donn�es de table
      */ 
+
     public void setData(ArrayList<String> list){
     	data = new Object[list.size()-1][6];
     	for (int i = 1; i < list.size(); i++) {
@@ -83,10 +81,10 @@ public class MyTableModel extends AbstractTableModel
 			data[i-1][5]=new Boolean(false);  
 		}
     	
-    	fireTableDataChanged();//	données sont changé
+    	fireTableDataChanged();
     }
     /** 
-     * Obtenez le nom de colonnes
+     * 
      */  
     @Override  
     public String getColumnName(int column)  
@@ -95,7 +93,7 @@ public class MyTableModel extends AbstractTableModel
     }  
       
     /** 
-     * Obtenez le nombre de colonnes
+     * 
      */  
     @Override  
     public int getColumnCount()  
@@ -104,7 +102,7 @@ public class MyTableModel extends AbstractTableModel
     }  
 
     /** 
-     * Obtenez le nombre de lignes
+     * 
      */  
     @Override  
     public int getRowCount()  
@@ -113,7 +111,7 @@ public class MyTableModel extends AbstractTableModel
     }  
 
     /** 
-     * Obtenez les données du table
+     * 
      */  
     @Override  
     public Object getValueAt(int rowIndex, int columnIndex)  
@@ -122,7 +120,7 @@ public class MyTableModel extends AbstractTableModel
     }  
 
     /** 
-     * Définissez le type de la valeur de retour de données
+     * 
      */  
     @Override  
     public Class<?> getColumnClass(int columnIndex)  
@@ -131,7 +129,7 @@ public class MyTableModel extends AbstractTableModel
     }  
 
     /** 
-     * le table ne peut pas être modifié
+     * 
      */  
     @Override  
     public boolean isCellEditable(int rowIndex, int columnIndex)  
@@ -141,7 +139,7 @@ public class MyTableModel extends AbstractTableModel
       
     /** 
      * on met les valeurs de aValue dans rowIndex et columnIndex
-     * Mise à jour le table
+     * Mise � jour le table
      */  
     @Override  
     public void setValueAt(Object aValue, int rowIndex, int columnIndex)  
@@ -151,9 +149,4 @@ public class MyTableModel extends AbstractTableModel
         fireTableCellUpdated(rowIndex, columnIndex);  
     }  
 
-//----------------------------------------------------------------------
-// fin de classe	
-	}
-
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
+}  

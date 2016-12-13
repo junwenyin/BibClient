@@ -88,6 +88,10 @@ public class ClientSocket {
 	// ----------------------------------------------------------------------
 	// fin de classe
 	
+	/**
+	 *	pour test les methods de ClientSocket.
+	 */
+	
 	public static void main(String[] args) throws Exception {
 		ArrayList<String> res;
 		InputStreamReader ir;
